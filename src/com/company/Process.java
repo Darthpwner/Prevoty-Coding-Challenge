@@ -11,7 +11,7 @@ public class Process {
     private String m_start_timestamp;
     private String m_stop_timestamp;
     private String m_name;
-
+    private int m_tabs;
 
     Process(String name, String  startTimestamp) {
         m_name = name;
@@ -43,8 +43,6 @@ public class Process {
     public void setM_name(String name) {
         m_name = name;
     }
-
-    //public
 
     public BigInteger timestampDifference() {
         BigInteger stop = new BigInteger(m_stop_timestamp);

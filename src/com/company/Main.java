@@ -3,9 +3,24 @@ package com.company;
 import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Stack;
 
 public class Main {
+
+    private int m_tabs = 0;
+
+    public int getM_tabs() {
+        return m_tabs;
+    }
+
+    public void incrementM_tabs() {
+        m_tabs++;
+    }
+
+    public void decrementM_tabs() {
+        m_tabs--;
+    }
 
     public static void main(String[] args) {
 	// write your code here
@@ -51,6 +66,8 @@ public class Main {
     public static void getOutput(String x) {
         Stack<Process> pStack = new Stack<Process>();
         ArrayList<Process> printResults = new ArrayList<>();
+        Main m = new Main();
+        HashMap<Process, Integer> tabs = new HashMap<>();
 
         String arr1[] = Process.parseText(x);    //Breaks each newline into a group
 
@@ -62,17 +79,20 @@ public class Main {
                 Process p = new Process(arr2[1], arr2[2]);  //PRoblem
                 printResults.add(p);
                 pStack.add(p);
+                m.incrementM_tabs();
+                tabs.put(p, m.getM_tabs());
             } else if(arr2[0].equals("stop")) {
                 //Pop off the stack, add to the output, and obtain the timestamp difference
                 Process p = pStack.pop();
 
                 p.setM_stop_timestamp(arr2[1]);
+                m.decrementM_tabs();
                 //Calculate difference when pritned
             }
         }
 
         for(int i = 0; i < printResults.size(); i++) {
-            for(int j = 0; j < 3; j++) {
+            for(int j = 0; j < tabs.get(printResults.get(i)); j++) {
                 System.out.print("\t");
             }
             System.out.println(printResults.get(i).getM_name() + ": " + printResults.get(i).timestampDifference());
