@@ -8,7 +8,7 @@ import java.util.Stack;
 
 public class Main {
 
-    private int m_tabs = 0;
+    private int m_tabs = -1;
 
     public int getM_tabs() {
         return m_tabs;
