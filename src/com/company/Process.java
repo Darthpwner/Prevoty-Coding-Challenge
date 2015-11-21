@@ -8,22 +8,22 @@ import java.util.Stack;
  */
 public class Process {
     //BigInteger(String s)
-    private long m_start_timestamp;
-    private long m_stop_timestamp;
+    private String m_start_timestamp;
+    private String m_stop_timestamp;
     private String m_name;
 
 
-    Process(String name, long startTimestamp) {
+    Process(String name, String  startTimestamp) {
         m_name = name;
         m_start_timestamp = startTimestamp;
     }
 
     //Getters
-    public long getM_start_timestamp() {
+    public String getM_start_timestamp() {
         return m_start_timestamp;
     }
 
-    public long getM_stop_timestamp() {
+    public String getM_stop_timestamp() {
         return m_stop_timestamp;
     }
 
@@ -32,11 +32,11 @@ public class Process {
     }
 
     //Setters
-    public void setM_start_timestamp(long timestamp) {
+    public void setM_start_timestamp(String timestamp) {
         m_start_timestamp = timestamp;
     }
 
-    public void setM_stop_timestamp(long timestamp) {
+    public void setM_stop_timestamp(String timestamp) {
         m_stop_timestamp = timestamp;
     }
 
@@ -46,8 +46,11 @@ public class Process {
 
     //public
 
-    public long timestampDifference() {
-        return m_stop_timestamp - m_start_timestamp;
+    public BigInteger timestampDifference() {
+        BigInteger stop = new BigInteger(m_stop_timestamp);
+        BigInteger start = new BigInteger(m_start_timestamp);
+
+        return stop.subtract(start);
     }
 
     //Parses each line in the receipt

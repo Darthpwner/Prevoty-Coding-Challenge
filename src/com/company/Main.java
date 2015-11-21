@@ -59,14 +59,14 @@ public class Main {
             String arr2[] = Process.parseLine(arr1[i]);  //Breaks down each line based on keyword
 
             if(arr2[0].equals("start")) {
-                Process p = new Process(arr2[1], Long.parseLong(arr2[2]));  //PRoblem
+                Process p = new Process(arr2[1], arr2[2]);  //PRoblem
                 printResults.add(p);
                 pStack.add(p);
             } else if(arr2[0].equals("stop")) {
                 //Pop off the stack, add to the output, and obtain the timestamp difference
                 Process p = pStack.pop();
 
-                p.setM_stop_timestamp(Long.parseLong(arr2[2]));
+                p.setM_stop_timestamp(arr2[1]);
                 //Calculate difference when pritned
             }
         }
