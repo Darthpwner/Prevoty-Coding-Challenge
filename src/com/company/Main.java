@@ -24,8 +24,6 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Stack<Process> pStack = new Stack<Process>();
-
         String x = "start,Start,10667692814595116481\n" +
                 "start,SID,10887999980799835056\n" +
                 "start,FELIPA,11029975320746904540\n" +
@@ -76,18 +74,16 @@ public class Main {
             String arr2[] = Process.parseLine(arr1[i]);  //Breaks down each line based on keyword
 
             if(arr2[0].equals("start")) {
-                Process p = new Process(arr2[1], arr2[2]);  //PRoblem
+                Process p = new Process(arr2[1], arr2[2]);  
                 printResults.add(p);
                 pStack.add(p);
                 m.incrementM_tabs();
                 tabs.put(p, m.getM_tabs());
             } else if(arr2[0].equals("stop")) {
-                //Pop off the stack, add to the output, and obtain the timestamp difference
                 Process p = pStack.pop();
 
                 p.setM_stop_timestamp(arr2[1]);
                 m.decrementM_tabs();
-                //Calculate difference when pritned
             }
         }
 

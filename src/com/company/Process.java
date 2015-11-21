@@ -7,11 +7,9 @@ import java.util.Stack;
  * Created by Darthpwner on 11/20/15.
  */
 public class Process {
-    //BigInteger(String s)
     private String m_start_timestamp;
     private String m_stop_timestamp;
     private String m_name;
-    private int m_tabs;
 
     Process(String name, String  startTimestamp) {
         m_name = name;
@@ -19,29 +17,13 @@ public class Process {
     }
 
     //Getters
-    public String getM_start_timestamp() {
-        return m_start_timestamp;
-    }
-
-    public String getM_stop_timestamp() {
-        return m_stop_timestamp;
-    }
-
     public String getM_name() {
         return m_name;
     }
 
     //Setters
-    public void setM_start_timestamp(String timestamp) {
-        m_start_timestamp = timestamp;
-    }
-
     public void setM_stop_timestamp(String timestamp) {
         m_stop_timestamp = timestamp;
-    }
-
-    public void setM_name(String name) {
-        m_name = name;
     }
 
     public BigInteger timestampDifference() {
@@ -64,15 +46,4 @@ public class Process {
 
         return arr;
     }
-
-    public void start(Process p) {
-
-    }
-
-    public void stop() {
-
-    }
-
-
-
 }
